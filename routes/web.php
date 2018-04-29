@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('masterAdmin');
+    return view('admin.pegawai.Tpegawai');
 });
 
 Auth::routes();
