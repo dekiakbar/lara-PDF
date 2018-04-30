@@ -23,13 +23,20 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {
-        $request->user()->authorizeRoles(['Super Admin','Admin','User']);
-        return view('home');
+        if ($request->user()->hasRole('Super Admin')) {
+            return redirect('/superadmin');
+        }
+
+        if ($request->user()->hasRole('Admin')) {
+            return redirect('/admin');
+        }
+
+        if ($request->user()->hasRole('User')) {
+            return redirect('/user');
+        }
+        
+        // $request->user()->authorizeRoles(['Super Admin','Admin','User']);
+        // return view('home');
     }
 
-    public function contoh(Request $request)
-    {
-        $request->user()->authorizeRoles('User');
-        return view('/kemana');
-    }
 }

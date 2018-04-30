@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('admin.pegawai.Tpegawai');
-})->middleware('role:Super Admin');
+});
 
 Auth::routes();
 
