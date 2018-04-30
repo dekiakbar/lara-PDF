@@ -27,6 +27,11 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function pegawais()
+    {
+      return $this->hasOne('App\Pegawai');
+    }
+    
     public function roles()
     {
         return $this->belongsToMany('App\Role');
