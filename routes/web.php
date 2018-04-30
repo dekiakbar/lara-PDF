@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('admin.pegawai.Tpegawai');
+    return view('welcome');
 });
 
 Auth::routes();
@@ -25,4 +25,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 |--------------------------------------------------------------------------
 |
 */
-	// Route::get()
+	Route::group(['prefix' => 'superadmin','middleware'=>'role:Super Admin'],function(){
+		Route::resource('pegawai','pegawaiCont');
+	});

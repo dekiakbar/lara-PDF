@@ -10,83 +10,97 @@
                 <div class="panel-heading"><h4>Tambah Data Pegawai</h4></div>
                 <div class="panel-body">
 
-					<form action="" method="post">
+					<form action="{{ route('pegawai.store') }}" method="post">
 						{{ csrf_field() }}
 						<div class="form-group">
 							<label>Nama</label>
-							<input type="" name="nama" class="form-control">
+							<input type="text" name="name" class="form-control">
+						</div>
+
+						<div class="form-group">
+							<label>Email</label>
+							<input type="text" name="email" class="form-control">
+						</div> 
+						
+						<div class="form-group">
+							<label>Hak Akses</label>
+							<select name="role" class="form-control"> 
+								@foreach($roles as $role)
+									<option value="{{$role->id}}">{{$role->name}}</option>
+								@endforeach
+							</select>
+						</div>
+
+						<div class="form-group">
+							<label>Password</label>
+							<input type="password" name="password" class="form-control">
+						</div>
+
+						<div class="form-group">
+							<label>Password Konfirmasi</label>
+							<input type="password" name="password_confirmation" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>NIP</label>
-							<input type="" name="nip" class="form-control">
+							<input type="text" name="nip" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Pangkat</label>
-							<input type="" name="pangkat" class="form-control">
+							<input type="text" name="pangkat" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Golongan</label>
-							<select class="form-control"> 
-								<option>IA</option>
-								<option>IB</option>
-								<option>IC</option>
-								<option>ID</option>
-								<option>IE</option>
-								<option>IIA</option>
-								<option>IIB</option>
-								<option>IIC</option>
-								<option>IID</option>
-								<option>IIE</option>
-								<option>IIIA</option>
-								<option>IIIB</option>
-								<option>IIIC</option>
-								<option>IIID</option>
-								<option>IIIE</option>
-								<option>IVA</option>
-								<option>IVB</option>
-								<option>IVC</option>
-								<option>IVD</option>
-								<option>IVE</option>
-								<option>Honorer</option>
+							<select name="golongan" class="form-control"> 
+								<option value="IA">IA</option>
+								<option value="IB">IB</option>
+								<option value="IC">IC</option>
+								<option value="ID">ID</option>
+								<option value="IE">IE</option>
+								<option value="IIA">IIA</option>
+								<option value="IIB">IIB</option>
+								<option value="IIC">IIC</option>
+								<option value="IID">IID</option>
+								<option value="IIE">IIE</option>
+								<option value="IIIA">IIIA</option>
+								<option value="IIIB">IIIB</option>
+								<option value="IIIC">IIIC</option>
+								<option value="IIID">IIID</option>
+								<option value="IIIE">IIIE</option>
+								<option value="IVA">IVA</option>
+								<option value="IVB">IVB</option>
+								<option value="IVC">IVC</option>
+								<option value="IVD">IVD</option>
+								<option value="IVE">IVE</option>
+								<option value="Honorer">Honorer</option>
 							</select> 
 						</div>
 
 						<div class="form-group">
 							<label>Jabatan</label>
-							<input type="" name="jabatan" class="form-control">
+							<input type="text" name="jabatan" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Wilayah Tugas</label>
-							<input type="" name="wilayah" class="form-control">
+							<input type="text" name="wilayah" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Tempat Lahir</label>
-							<input type="" name="tempat" class="form-control">
+							<input type="text" name="tempat" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Tanggal Lahir</label>
-							<input type="" name="tanggal" class="form-control">
+							<input type="text" name="tanggal" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Angkutan</label>
-							<input type="" name="angkutan" class="form-control">
-						</div>
-
-						<div class="form-group">
-							<label>User</label>
-							<input type="" name="user" class="form-control">
-						</div> 
-
-						<div class="form-group">
-							<label>Password</label>
-							<input type="" name="password" class="form-control">
+							<input type="text" name="angkutan" class="form-control">
 						</div>
 
 						<div class="form-group">
