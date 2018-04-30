@@ -13,8 +13,16 @@
 
 Route::get('/', function () {
     return view('admin.pegawai.Tpegawai');
-});
+})->middleware('role:Admin');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/*
+|--------------------------------------------------------------------------
+|  Route Super Admin
+|--------------------------------------------------------------------------
+|
+*/
+	// Route::get()
