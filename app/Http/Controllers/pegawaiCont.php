@@ -54,16 +54,6 @@ class pegawaiCont extends Controller
         return redirect()->route('pegawai.index');
     }
 
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
     public function update(Request $request, $id)
     {
         $pegawai = Pegawai::findOrFail(decrypt($id));

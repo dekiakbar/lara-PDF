@@ -26,5 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 |
 */
 	Route::group(['prefix' => 'superadmin','middleware'=>'role:Super Admin'],function(){
-		Route::resource('pegawai','pegawaiCont');
+
+		//Route untuk data Pegawai
+		Route::resource('pegawai','pegawaiCont')->only(['index','create','store','update','destroy']);
 	});
