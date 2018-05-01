@@ -13,10 +13,13 @@
 	        	@endif
         		<h4>
         			Daftar Data Pegawai
-        			<a href="{{ route('pegawai.create') }}" class="btn btn-primary btn-sm" style="float: right;">Tambah Pegawai</a>
+        			<a href="{{ route('pegawai.create') }}" class="btn btn-primary btn-sm" style="float: right;">
+        				<span class="glyphicon glyphicon-plus"></span> 
+        				Pegawai
+        			</a>
         		</h4>
         		<div class="table-responsive">    
-            		<table id="mytable" class="table table-bordred table-striped">
+            		<table id="mytable" class="table table-stripped">
                    
                    		<thead>
 		                   	<th>No</th>
@@ -35,7 +38,7 @@
 								    <td>{{++$no}}</td>
 								    <td>{{$p->users->name}}</td>
 								    <td>{{$p->users->email}}</td>
-								    <td>Super Admin</td>
+								    <td>{{$p->users->roles->first()->name}}</td>
 								    <td>{{$p->jabatan}}</td>
 								    <td>{{$p->wilayah}}</td>
 								    <td>
@@ -56,8 +59,10 @@
 						    @endforeach
     					</tbody>
         			</table>
-					{{ $pegawais->appends(\Request::except('page'))->links('vendor.pagination.default') }}
             	</div>
+            	<div class="text-center">
+					{{ $pegawais->appends(\Request::except('page'))->links('vendor.pagination.default') }}
+				</div>
         	</div>
 		</div>
 	</div>
@@ -73,7 +78,7 @@
 				        <h4 class="modal-title custom_align" id="Heading">Edit Data</h4>
 			      	</div>
 			        <div class="modal-body">
-				       <form action="{{ route('pegawai.update',encrypt($p->id)) }}" method="post">
+				       <form action="{{ route('pegawai.update',encrypt($p->id)) }}" method="post" id="{{md5('submit'.$p->id)}}">
 							{{ csrf_field() }}
 							<input type="hidden" name="_method" value="patch">
 							<div class="form-group">
@@ -152,15 +157,11 @@
 							<div class="form-group">
 								<label>Angkutan</label>
 								<input type="text" name="angkutan" class="form-control" value="{{$p->angkutan}}">
-							</div>
-
-							<div class="form-group">
-								<button class="btn btn-primary"> Save</button>
 							</div>	
 						</form>
 			      	</div>
 			        <div class="modal-footer ">
-			        	<button type="button" class="btn btn-warning btn-lg" style="width: 100%;">
+			        	<button type="button" class="btn btn-warning btn-lg" style="width: 100%;" onclick="event.preventDefault();document.getElementById('{{md5('submit'.$p->id)}}').submit();">
 			        		<span class="glyphicon glyphicon-ok-sign"></span> Update
 			        	</button>
 			      	</div>
