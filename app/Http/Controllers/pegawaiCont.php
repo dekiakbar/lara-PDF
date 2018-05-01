@@ -11,7 +11,7 @@ class pegawaiCont extends Controller
 {
     public function index(Request $req)
     {
-        $pegawais = Pegawai::with('users')->paginate(5);
+        $pegawais = Pegawai::with('users.roles')->paginate(5);
         $roles = Role::all();
         return view('admin.pegawai.Ipegawai',compact('pegawais','roles'))->with('no',($req->input('page',1)-1)*5);
     }
@@ -66,7 +66,21 @@ class pegawaiCont extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $pegawai = Pegawai::findOrFail(decrypt($id));
+        $pegawai->nip = $request->nip;
+        $pegawai->pangkat = $request->pangkat;
+        $pegawai->golongan = $request->golongan;
+        $pegawai->jabatan = $request->jabatan;
+        $pegawai->wilayah = $request->wilayah;
+        $pegawai->tempat = $request->tempat;
+        $pegawai->tanggal = $request->tanggal;
+        $pegawai->angkutan = $request->angkutan;
+        $pegawai->save();
+
+        session()->flash('status','success');
+        session()->flash('pesan','Data Pegawai Berhasil diubah');
+
+        return redirect()->route('pegawai.index');
     }
 
     public function destroy($id)

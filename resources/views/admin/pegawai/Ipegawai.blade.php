@@ -69,7 +69,7 @@
 				        <h4 class="modal-title custom_align" id="Heading">Edit Data</h4>
 			      	</div>
 			        <div class="modal-body">
-				       <form action="{{ route('pegawai.update',$p->id) }}" method="post">
+				       <form action="{{ route('pegawai.update',encrypt($p->id)) }}" method="post">
 							{{ csrf_field() }}
 							<input type="hidden" name="_method" value="patch">
 							<div class="form-group">
@@ -84,11 +84,7 @@
 							
 							<div class="form-group">
 								<label>Hak Akses</label>
-								<select name="role" class="form-control"> 
-									@foreach($roles as $role)
-										<option value="{{$role->id}}">{{$role->name}}</option>
-									@endforeach
-								</select>
+								<input type="txet" name="role" class="form-control" value="{{$p->users->roles->first()->name}}" readonly>
 							</div>
 
 							<div class="form-group">
