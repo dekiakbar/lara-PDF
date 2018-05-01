@@ -76,6 +76,7 @@ class pegawaiCont extends Controller
     public function destroy($id)
     {
         $hapus = Pegawai::with('users')->findOrFail(decrypt($id));
+        $hapus->users->roles()->detach();
         $hapus->users->delete();
         $hapus->delete();
 
