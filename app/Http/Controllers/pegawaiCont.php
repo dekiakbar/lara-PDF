@@ -9,9 +9,12 @@ use App\User;
 
 class pegawaiCont extends Controller
 {
-    public function index()
+    public function index(Request $req)
     {
-        //
+        $pegawais = Pegawai::join('users','user_id','users.id')
+                ->select('*','pegawais.id as id')
+                ->paginate(5);
+        return view('admin.pegawai.Ipegawai',compact('pegawais'))->with('no',($req->input('page',1)-1)*5);
     }
 
     public function create()
