@@ -19,7 +19,7 @@
 		                   	<th>No</th>
 		                   	<th>Nama</th>
 		                    <th>Email</th>
-		                    <th>Level</th>
+		                    <th>Hak Akses</th>
 		                    <th>Jabatan</th>
 		                    <th>Wilayah</th>
 		                    <th>Edit</th>  
@@ -182,10 +182,14 @@
 			       		</div>
 			      	</div>
 			        <div class="modal-footer ">
-				        <button type="button" class="btn btn-success" >
+				        <button type="button" class="btn btn-success" onclick="event.preventDefault();document.getElementById('{{md5('ya'.$p->id)}}').submit();">
 				        	<span class="glyphicon glyphicon-ok-sign"></span> 
 				        	Ya
 				        </button>
+				        <form id="{{md5('ya'.$p->id)}}" action="{{ route('pegawai.destroy',encrypt($p->id)) }}" method="post" style="display: none;"> 
+				        	{{csrf_field()}}
+				        	<input type="hidden" name="_method" value="delete">
+				        </form>
 				        <button type="button" class="btn btn-default" data-dismiss="modal">
 				        	<span class="glyphicon glyphicon-remove"></span> 
 				        	Tidak

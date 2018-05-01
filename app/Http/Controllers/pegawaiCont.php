@@ -85,6 +85,12 @@ class pegawaiCont extends Controller
 
     public function destroy($id)
     {
-        //
+        $hapus = Pegawai::with('users')->findOrFail(decrypt($id));
+        $hapus->users->delete();
+        $hapus->delete();
+
+        session()->flash('status','success');
+        session()->flash('pesan','Data Pegawai Berhasil dihapus');
+        return redirect()->route('pegawai.index');
     }
 }
