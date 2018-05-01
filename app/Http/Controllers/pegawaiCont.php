@@ -11,9 +11,9 @@ class pegawaiCont extends Controller
 {
     public function index(Request $req)
     {
-        $pegawais = Pegawai::with('users')
-                ->paginate(5);
-        return view('admin.pegawai.Ipegawai',compact('pegawais'))->with('no',($req->input('page',1)-1)*5);
+        $pegawais = Pegawai::with('users')->paginate(5);
+        $roles = Role::all();
+        return view('admin.pegawai.Ipegawai',compact('pegawais','roles'))->with('no',($req->input('page',1)-1)*5);
     }
 
     public function create()
