@@ -22,24 +22,29 @@ class pegawaiCont extends Controller
 
     public function store(Request $request)
     {
-        $user = User::create([
-          'name'     => $request->name,
-          'email'    => $request->email,
-          'password' => bcrypt($request->password),
-        ]);
-        $user->roles()->attach(Role::where('id', $request->role)->first());
+        if ($request->password == $request->password_confirmation) {
+            $user = User::create([
+              'name'     => $request->name,
+              'email'    => $request->email,
+              'password' => bcrypt($request->password),
+            ]);
+            $user->roles()->attach(Role::where('id', $request->role)->first());
 
-        $pegawai = Pegawai::create([
-            'user_id' => $user->id,
-            'nip' => $request->nip,
-            'pangkat' => $request->pangkat,
-            'golongan' => $request->golongan,
-            'jabatan' => $request->jabatan,
-            'wilayah' => $request->wilayah,
-            'tempat' => $request->tempat,
-            'tanggal' => $request->tanggal,
-            'angkutan' => $request->angkutan,
-        ]);
+            $pegawai = Pegawai::create([
+                'user_id' => $user->id,
+                'nip' => $request->nip,
+                'pangkat' => $request->pangkat,
+                'golongan' => $request->golongan,
+                'jabatan' => $request->jabatan,
+                'wilayah' => $request->wilayah,
+                'tempat' => $request->tempat,
+                'tanggal' => $request->tanggal,
+                'angkutan' => $request->angkutan,
+            ]);
+        }else{
+            session()->flash('status','warning');
+            session()->flash('pesan','Password dan Password konfirmasi tidak cocok');
+        }
 
         return redirect('/superadmin/pegawai/create');
     }

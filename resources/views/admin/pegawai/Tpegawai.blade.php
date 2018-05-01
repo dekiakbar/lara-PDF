@@ -6,6 +6,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
+        	@if(session()->has('status'))
+        		<div class="panel panel-{{session('status')}}">
+				  <div class="panel-body">
+				    {{session('pesan')}}
+				  </div>
+				</div>
+        	@endif
             <div class="panel panel-default">
                 <div class="panel-heading"><h4>Tambah Data Pegawai</h4></div>
                 <div class="panel-body">
