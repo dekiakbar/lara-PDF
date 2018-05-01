@@ -7,6 +7,11 @@
 		<div class="row">
         	<div class="col-md-12">
         		<h4>Daftar Data Pegawai</h4>
+        		@if(session()->has('status'))
+	        		<div class="alert alert-{{session('status')}}">
+					    {{session('pesan')}}.
+					</div>
+	        	@endif
         		<div class="table-responsive">    
             		<table id="mytable" class="table table-bordred table-striped">
                    
@@ -25,8 +30,8 @@
 						    @foreach($pegawais as $p)
 								<tr>
 								    <td>{{++$no}}</td>
-								    <td>{{$p->name}}</td>
-								    <td>{{$p->email}}</td>
+								    <td>{{$p->users->name}}</td>
+								    <td>{{$p->users->email}}</td>
 								    <td>Super Admin</td>
 								    <td>{{$p->jabatan}}</td>
 								    <td>{{$p->wilayah}}</td>

@@ -11,8 +11,7 @@ class pegawaiCont extends Controller
 {
     public function index(Request $req)
     {
-        $pegawais = Pegawai::join('users','user_id','users.id')
-                ->select('*','pegawais.id as id')
+        $pegawais = Pegawai::with('users')
                 ->paginate(5);
         return view('admin.pegawai.Ipegawai',compact('pegawais'))->with('no',($req->input('page',1)-1)*5);
     }
@@ -44,12 +43,15 @@ class pegawaiCont extends Controller
                 'tanggal' => $request->tanggal,
                 'angkutan' => $request->angkutan,
             ]);
+
+            session()->flash('status','success');
+            session()->flash('pesan','Data Pegawai Berhasil disimpan');
         }else{
             session()->flash('status','warning');
             session()->flash('pesan','Password dan Password konfirmasi tidak cocok');
         }
 
-        return redirect('/superadmin/pegawai/create');
+        return redirect()->route('pegawai.index');
     }
 
     public function show($id)
