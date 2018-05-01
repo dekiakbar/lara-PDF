@@ -44,7 +44,7 @@
 								    </td>
 								    <td>
 								    	<p data-placement="top" data-toggle="tooltip" title="Delete">
-								    		<button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete">
+								    		<button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="{{'#'.md5($p->id.'delete')}}">
 								    			<span class="glyphicon glyphicon-trash"></span>
 								    		</button>
 								    	</p>
@@ -165,32 +165,34 @@
 	    </div>
 	@endforeach    
     
-    <div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
-      	<div class="modal-dialog">
-		    <div class="modal-content">
-		        <div class="modal-header">
-		        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-		        		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-		        	</button>
-		        	<h4 class="modal-title custom_align" id="Heading">Delete Data Pegawai</h4>
-		      	</div>
-		        <div class="modal-body">
-		       		<div class="alert alert-danger">
-		       			<span class="glyphicon glyphicon-warning-sign"></span> 
-		       			Anda yakin ingin menghapus data ini?
-		       		</div>
-		      	</div>
-		        <div class="modal-footer ">
-			        <button type="button" class="btn btn-success" >
-			        	<span class="glyphicon glyphicon-ok-sign"></span> 
-			        	Ya
-			        </button>
-			        <button type="button" class="btn btn-default" data-dismiss="modal">
-			        	<span class="glyphicon glyphicon-remove"></span> 
-			        	Tidak
-			        </button>
-		      	</div>
-		    </div> 
-	  	</div>
-    </div>
+    @foreach($pegawais as $p)
+    	<div class="modal fade" id="{{md5($p->id.'delete')}}" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+	      	<div class="modal-dialog">
+			    <div class="modal-content">
+			        <div class="modal-header">
+			        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+			        		<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+			        	</button>
+			        	<h4 class="modal-title custom_align" id="Heading">Delete Data Pegawai</h4>
+			      	</div>
+			        <div class="modal-body">
+			       		<div class="alert alert-danger">
+			       			<span class="glyphicon glyphicon-warning-sign"></span> 
+			       			Anda yakin ingin menghapus data dengan nama pegawai <strong>{{$p->users->name}}</strong> ?
+			       		</div>
+			      	</div>
+			        <div class="modal-footer ">
+				        <button type="button" class="btn btn-success" >
+				        	<span class="glyphicon glyphicon-ok-sign"></span> 
+				        	Ya
+				        </button>
+				        <button type="button" class="btn btn-default" data-dismiss="modal">
+				        	<span class="glyphicon glyphicon-remove"></span> 
+				        	Tidak
+				        </button>
+			      	</div>
+			    </div> 
+		  	</div>
+	    </div>
+    @endforeach
 @endsection
