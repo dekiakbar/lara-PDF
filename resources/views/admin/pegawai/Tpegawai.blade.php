@@ -100,7 +100,7 @@
 
 						<div class="form-group">
 							<label>Tanggal Lahir</label>
-							<input type="text" name="tanggal" class="form-control">
+							<input id="datepicker" type="text" name="tanggal" class="form-control">
 						</div>
 
 						<div class="form-group">
