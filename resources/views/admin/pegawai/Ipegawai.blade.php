@@ -6,12 +6,15 @@
 	<div class="container">
 		<div class="row">
         	<div class="col-md-12">
-        		<h4>Daftar Data Pegawai</h4>
         		@if(session()->has('status'))
 	        		<div class="alert alert-{{session('status')}}">
 					    {{session('pesan')}}.
 					</div>
 	        	@endif
+        		<h4>
+        			Daftar Data Pegawai
+        			<a href="{{ route('pegawai.create') }}" class="btn btn-primary btn-sm" style="float: right;">Tambah Pegawai</a>
+        		</h4>
         		<div class="table-responsive">    
             		<table id="mytable" class="table table-bordred table-striped">
                    
@@ -53,6 +56,7 @@
 						    @endforeach
     					</tbody>
         			</table>
+					{{ $pegawais->appends(\Request::except('page'))->links('vendor.pagination.default') }}
             	</div>
         	</div>
 		</div>
