@@ -7,7 +7,7 @@ use App\JenisKerja;
 class jenisKerjaController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
         $kerjas = JenisKerja::paginate(10);
         return view('admin.pekerjaan.Ipekerjaan',compact('kerjas'))->with('no',($request->input('page',1)-1)*10);

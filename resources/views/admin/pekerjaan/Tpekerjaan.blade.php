@@ -64,11 +64,6 @@
 						<div class="form-group">
 							<label>Kode Akun</label>
 							<input type="text" name="kode_akun" class="form-control">
-						</div> 
-
-						<div class="form-group">
-							<label>Akun</label>
-							<input type="text" name="akun" class="form-control">
 						</div>
 
 						<div class="form-group">

@@ -25,35 +25,37 @@
             		<table id="mytable" class="table table-stripped">
                    
                    		<thead>
-		                   	<th>No</th>
-		                   	<th>Nama</th>
-		                    <th>Email</th>
-		                    <th>Hak Akses</th>
-		                    <th>Jabatan</th>
-		                    <th>Wilayah</th>
+                   			<th>No</th>
+		                   	<th>Program</th>
+		                   	<th>Kegiatan</th>
+		                    <th>Komponen</th>
+		                    <th>Output</th>
+		                    <th>Volume</th>
+		                    <th>Detail</th>
 		                    <th>Edit</th>  
                     		<th>Delete</th>
                   		</thead>
 
 					    <tbody>
-						    @foreach($kerjas as $p)
+						    @foreach($kerjas as $k)
 								<tr>
 								    <td>{{++$no}}</td>
-								    <td>{{$p->users->name}}</td>
-								    <td>{{$p->users->email}}</td>
-								    <td>{{$p->users->roles->first()->name}}</td>
-								    <td>{{$p->jabatan}}</td>
-								    <td>{{$p->wilayah}}</td>
+								    <td>{{$k->program}}</td>
+								    <td>{{$k->kegiatan}}</td>
+								    <td>{{$k->komponen}}</td>
+								    <td>{{$k->output}}</td>
+								    <td>{{$k->volume}}</td>
+								    <td>{{$k->detail}}</td>
 								    <td>
 								    	<p data-placement="top" data-toggle="tooltip" title="Edit">
-								    		<button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="{{'#'.md5('edit'.$p->id)}}">
+								    		<button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="{{'#'.md5('edit'.$k->id)}}">
 								    			<span class="glyphicon glyphicon-pencil"></span>
 								    		</button>
 								    	</p>
 								    </td>
 								    <td>
 								    	<p data-placement="top" data-toggle="tooltip" title="Delete">
-								    		<button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="{{'#'.md5($p->id.'delete')}}">
+								    		<button class="btn btn-danger btn-xs" data-title="Delete" data-toggle="modal" data-target="{{'#'.md5($k->id.'delete')}}">
 								    			<span class="glyphicon glyphicon-trash"></span>
 								    		</button>
 								    	</p>
@@ -70,8 +72,8 @@
 		</div>
 	</div>
 
-	@foreach($kerjas as $p)
-		<div class="modal fade" id="{{md5('edit'.$p->id)}}" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+	@foreach($kerjas as $k)
+		<div class="modal fade" id="{{md5('edit'.$k->id)}}" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
 		    <div class="modal-dialog">
 			    <div class="modal-content">
 			        <div class="modal-header">
@@ -81,90 +83,112 @@
 				        <h4 class="modal-title custom_align" id="Heading">Edit Data</h4>
 			      	</div>
 			        <div class="modal-body">
-				       <form action="{{ route('pegawai.update',encrypt($p->id)) }}" method="post" id="{{md5('submit'.$p->id)}}">
+				       <form action="{{ route('pekerjaan.update',encrypt($k->id)) }}" method="post" id="{{md5('submit'.$k->id)}}">
 							{{ csrf_field() }}
 							<input type="hidden" name="_method" value="patch">
 							<div class="form-group">
-								<label>Nama</label>
-								<input type="text" name="name" class="form-control" value="{{$p->users->name}}" readonly>
+								<label>Kode Program</label>
+								<input type="text" name="kode_prog" class="form-control" value="{{$k->kode_prog}}">
 							</div>
 
 							<div class="form-group">
-								<label>Email</label>
-								<input type="text" name="email" class="form-control" value="{{$p->users->email}}" readonly>
-							</div> 
+								<label>Program</label>
+								<input type="text" name="program" class="form-control" value="{{$k->program}}">
+							</div>
+
+							<div class="form-group">
+								<label>Kode Kegiatan</label>
+								<input type="text" name="kode_keg" class="form-control" value="{{$k->kode_keg}}">
+							</div>
+
+							<div class="form-group">
+								<label>Kegiatan</label>
+								<input type="text" name="kegiatan" class="form-control" value="{{$k->kegiatan}}"> 
+							</div>
+
+							<div class="form-group">
+								<label>Kode Output</label>
+								<input type="text" name="kode_output" class="form-control" value="{{$k->kode_output}}">
+							</div>
+
+							<div class="form-group">
+								<label>Output</label>
+								<input type="text" name="output" class="form-control" value="{{$k->output}}">
+							</div>
+
+							<div class="form-group">
+								<label>Kode Komponen</label>
+								<input type="text" name="kode_komponen" class="form-control" value="{{$k->kode_komponen}}">
+							</div>
+
+							<div class="form-group">
+								<label>Komponen</label>
+								<input type="text" name="komponen" class="form-control" value="{{$k->komponen}}">
+							</div>
+
+							<div class="form-group">
+								<label>Sub Komponen</label>
+								<input type="text" name="sub_komp" class="form-control" value="{{$k->sub_komp}}">
+							</div>
+
+							<div class="form-group">
+								<label>Kode Akun</label>
+								<input type="text" name="kode_akun" class="form-control" value="{{$k->kode_akun}}">
+							</div>
+
+							<div class="form-group">
+								<label>Volume </label>
+								<input type="text" name="volume" class="form-control" value="{{$k->volume}}">
+							</div>
 							
 							<div class="form-group">
-								<label>Hak Akses</label>
-								<input type="txet" name="role" class="form-control" value="{{$p->users->roles->first()->name}}" readonly>
+								<label>Satuan</label>
+								<input type="text" name="akun" class="form-control" value="{{$k->akun}}">
 							</div>
 
 							<div class="form-group">
-								<label>NIP</label>
-								<input type="text" name="nip" class="form-control" value="{{$p->nip}}">
+								<label>Detail</label>
+								<input type="text" name="detail" class="form-control" value="{{$k->detail}}">
 							</div>
 
 							<div class="form-group">
-								<label>Pangkat</label>
-								<input type="text" name="pangkat" class="form-control" value="{{$p->pangkat}}">
+								<label>Seksi</label>
+								<select name="seksi" class="form-control">
+									<option value="produksi">Produksi</option>
+									<option value="tu">TU</option>
+									<option value="distribusi">Distribusi</option>
+									<option value="sosial">Sosial</option>
+									<option value="ipds">IPDS</option>
+									<option value="nerwilis">Nerwilis</option>
+								</select>
 							</div>
 
 							<div class="form-group">
-								<label>Golongan</label>
-								<select name="golongan" class="form-control">
-									<option value="{{$p->golongan}}" selected>{{$p->golongan}}</option> 
-									<option value="IA">IA</option>
-									<option value="IB">IB</option>
-									<option value="IC">IC</option>
-									<option value="ID">ID</option>
-									<option value="IE">IE</option>
-									<option value="IIA">IIA</option>
-									<option value="IIB">IIB</option>
-									<option value="IIC">IIC</option>
-									<option value="IID">IID</option>
-									<option value="IIE">IIE</option>
-									<option value="IIIA">IIIA</option>
-									<option value="IIIB">IIIB</option>
-									<option value="IIIC">IIIC</option>
-									<option value="IIID">IIID</option>
-									<option value="IIIE">IIIE</option>
-									<option value="IVA">IVA</option>
-									<option value="IVB">IVB</option>
-									<option value="IVC">IVC</option>
-									<option value="IVD">IVD</option>
-									<option value="IVE">IVE</option>
-									<option value="Honorer">Honorer</option>
-								</select> 
+								<label>Index</label>
+								<input type="text" name="index" class="form-control" value="{{$k->index}}">
 							</div>
 
 							<div class="form-group">
-								<label>Jabatan</label>
-								<input type="text" name="jabatan" class="form-control" value="{{$p->jabatan}}">
+								<label>Bulan</label>
+								<input type="text" name="bulan" class="form-control" value="{{$k->bulan}}">
 							</div>
 
 							<div class="form-group">
-								<label>Wilayah Tugas</label>
-								<input type="text" name="wilayah" class="form-control" value="{{$p->wilayah}}">
+								<label>Tahun</label>
+								<input type="text" name="tahun" class="form-control" value="{{$k->tahun}}">
 							</div>
 
 							<div class="form-group">
-								<label>Tempat Lahir</label>
-								<input type="text" name="tempat" class="form-control" value="{{$p->tempat}}">
+								<label>Keterangan</label>
+								<select class="form-control" name="keterangan">
+									<option value="pcl">PCL</option>
+									<option value="plm">PLM</option>
+								</select>
 							</div>
-
-							<div class="form-group">
-								<label>Tanggal Lahir</label>
-								<input type="text" name="tanggal" class="form-control" value="{{$p->tanggal}}">
-							</div>
-
-							<div class="form-group">
-								<label>Angkutan</label>
-								<input type="text" name="angkutan" class="form-control" value="{{$p->angkutan}}">
-							</div>	
 						</form>
 			      	</div>
 			        <div class="modal-footer ">
-			        	<button type="button" class="btn btn-warning btn-lg" style="width: 100%;" onclick="event.preventDefault();document.getElementById('{{md5('submit'.$p->id)}}').submit();">
+			        	<button type="button" class="btn btn-warning btn-lg" style="width: 100%;" onclick="event.preventDefault();document.getElementById('{{md5('submit'.$k->id)}}').submit();">
 			        		<span class="glyphicon glyphicon-ok-sign"></span> Update
 			        	</button>
 			      	</div>
@@ -173,8 +197,8 @@
 	    </div>
 	@endforeach    
     
-    @foreach($pegawais as $p)
-    	<div class="modal fade" id="{{md5($p->id.'delete')}}" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
+    @foreach($kerjas as $k)
+    	<div class="modal fade" id="{{md5($k->id.'delete')}}" tabindex="-1" role="dialog" aria-labelledby="edit" aria-hidden="true">
 	      	<div class="modal-dialog">
 			    <div class="modal-content">
 			        <div class="modal-header">
@@ -186,15 +210,15 @@
 			        <div class="modal-body">
 			       		<div class="alert alert-danger">
 			       			<span class="glyphicon glyphicon-warning-sign"></span> 
-			       			Anda yakin ingin menghapus data dengan nama pegawai <strong>{{$p->users->name}}</strong> ?
+			       			Anda yakin ingin menghapus data dengan nama pegawai <strong>ini</strong> ?
 			       		</div>
 			      	</div>
 			        <div class="modal-footer ">
-				        <button type="button" class="btn btn-success" onclick="event.preventDefault();document.getElementById('{{md5('ya'.$p->id)}}').submit();">
+				        <button type="button" class="btn btn-success" onclick="event.preventDefault();document.getElementById('{{md5('ya'.$k->id)}}').submit();">
 				        	<span class="glyphicon glyphicon-ok-sign"></span> 
 				        	Ya
 				        </button>
-				        <form id="{{md5('ya'.$p->id)}}" action="{{ route('pegawai.destroy',encrypt($p->id)) }}" method="post" style="display: none;"> 
+				        <form id="{{md5('ya'.$k->id)}}" action="{{ route('pegawai.destroy',encrypt($k->id)) }}" method="post" style="display: none;"> 
 				        	{{csrf_field()}}
 				        	<input type="hidden" name="_method" value="delete">
 				        </form>
