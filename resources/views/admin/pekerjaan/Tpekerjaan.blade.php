@@ -14,75 +14,76 @@
 	        <div class="panel panel-default">
                 <div class="panel-heading"><h4>Input Jenis Pekerjaan</h4></div>
                 <div class="panel-body">
-					<form>
+					<form action="{{ route('pekerjaan.store') }}" method="post">
+						{{csrf_field()}}
 						<div class="form-group">
 							<label>Kode Program</label>
-							<input type="" name="kode_prog" class="form-control">
+							<input type="text" name="kode_prog" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Program</label>
-							<input type="" name="program" class="form-control">
+							<input type="text" name="program" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Kode Kegiatan</label>
-							<input type="" name="kode_keg" class="form-control">
+							<input type="text" name="kode_keg" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Kegiatan</label>
-							<input type="" name="kegiatan" class="form-control"> 
+							<input type="text" name="kegiatan" class="form-control"> 
 						</div>
 
 						<div class="form-group">
 							<label>Kode Output</label>
-							<input type="" name="kode_output" class="form-control">
+							<input type="text" name="kode_output" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Output</label>
-							<input type="" name="output" class="form-control">
+							<input type="text" name="output" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Kode Komponen</label>
-							<input type="" name="kode_komponen" class="form-control">
+							<input type="text" name="kode_komponen" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Komponen</label>
-							<input type="" name="komponen" class="form-control">
+							<input type="text" name="komponen" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Sub Komponen</label>
-							<input type="" name="sub_komp" class="form-control">
+							<input type="text" name="sub_komp" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Kode Akun</label>
-							<input type="" name="kode_akun" class="form-control">
+							<input type="text" name="kode_akun" class="form-control">
 						</div> 
 
 						<div class="form-group">
 							<label>Akun</label>
-							<input type="" name="akun" class="form-control">
+							<input type="text" name="akun" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Volume </label>
-							<input type="" name="volume" class="form-control">
+							<input type="text" name="volume" class="form-control">
 						</div>
 						
 						<div class="form-group">
 							<label>Satuan</label>
-							<input type="" name="akun" class="form-control">
+							<input type="text" name="akun" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Detail</label>
-							<input type="" name="detail" class="form-control">
+							<input type="text" name="detail" class="form-control">
 						</div>
 
 						<div class="form-group">
@@ -99,17 +100,17 @@
 
 						<div class="form-group">
 							<label>Index</label>
-							<input type="" name="index"class="form-control">
+							<input type="text" name="index"class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Bulan</label>
-							<input type="" name="bulan" class="form-control">
+							<input type="text" name="bulan" class="form-control">
 						</div>
 
 						<div class="form-group">
 							<label>Tahun</label>
-							<input type="" name="tahun" class="form-control">
+							<input type="text" name="tahun" class="form-control">
 						</div>
 
 						<div class="form-group">
@@ -120,10 +121,9 @@
 							</select>
 						</div>
 
-
-
 						<div class="form-group">
-							<button> Save</button>	
+							<button type="submit" class="btn btn-primary"> Save</button>	
+						</div>
 					</form>
 				</div>
 			</div>
