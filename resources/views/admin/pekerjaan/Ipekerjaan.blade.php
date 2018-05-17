@@ -218,7 +218,7 @@
 				        	<span class="glyphicon glyphicon-ok-sign"></span> 
 				        	Ya
 				        </button>
-				        <form id="{{md5('ya'.$k->id)}}" action="{{ route('pegawai.destroy',encrypt($k->id)) }}" method="post" style="display: none;"> 
+				        <form id="{{md5('ya'.$k->id)}}" action="{{ route('pekerjaan.destroy',encrypt($k->id)) }}" method="post" style="display: none;"> 
 				        	{{csrf_field()}}
 				        	<input type="hidden" name="_method" value="delete">
 				        </form>

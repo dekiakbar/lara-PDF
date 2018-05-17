@@ -80,12 +80,17 @@ class jenisKerjaController extends Controller
             session()->flash('pesan','Data Pekerjaan Gagal Diubah');
         }
 
-        return redirect('superadmin/pekerjaan');
+        return redirect()->route('pekerjaan.index');
     }
 
 
     public function destroy($id)
     {
-        //
+        $hapus = JenisKerja::findOrFail(decrypt($id));
+        $hapus->delete();
+
+        session()->flash('status','success');
+        session()->flash('pesan','Data Pekerjaan Berhasil dihapus');
+        return redirect()->route('pekerjaan.index');
     }
 }
