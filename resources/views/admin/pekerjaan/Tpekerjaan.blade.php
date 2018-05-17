@@ -100,7 +100,7 @@
 
 						<div class="form-group">
 							<label>Index</label>
-							<input type="text" name="index"class="form-control">
+							<input type="text" name="index" class="form-control">
 						</div>
 
 						<div class="form-group">
@@ -115,7 +115,7 @@
 
 						<div class="form-group">
 							<label>Keterangan</label>
-							<select class="form-control">
+							<select class="form-control" name="keterangan">
 								<option value="pcl">PCL</option>
 								<option value="plm">PLM</option>
 							</select>

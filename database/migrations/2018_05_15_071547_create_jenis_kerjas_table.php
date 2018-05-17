@@ -27,7 +27,6 @@ class CreateJenisKerjasTable extends Migration
             $table->text('kode_akun');
             $table->text('akun');
             $table->text('volume');
-            $table->text('akun');
             $table->text('detail');
             $table->text('seksi');
             $table->text('index');

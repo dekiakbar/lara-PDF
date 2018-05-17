@@ -9,7 +9,7 @@ class jenisKerjaController extends Controller
 
     public function index()
     {
-        $kerjas = JenisKerja::paginnate(10);
+        $kerjas = JenisKerja::paginate(10);
         return view('admin.pekerjaan.Ipekerjaan',compact('kerjas'))->with('no',($request->input('page',1)-1)*10);
     }
 
@@ -35,7 +35,6 @@ class jenisKerjaController extends Controller
             'kode_akun' => $request->input('kode_akun'),
             'akun' => $request->input('akun'),
             'volume' => $request->input('volume'),
-            'akun' => $request->input('akun'),
             'detail' => $request->input('detail'),
             'seksi' => $request->input('seksi'),
             'index' => $request->input('index'),
