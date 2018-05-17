@@ -29,4 +29,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 		//Route untuk data Pegawai
 		Route::resource('pegawai','pegawaiCont')->only(['index','create','store','update','destroy']);
+
+		//Route untuk data Jenis Pekerjaan
+		Route::resource('pekerjaan','jenisKerjaController')->only(['index','create','store','update','destroy']);
 	});
