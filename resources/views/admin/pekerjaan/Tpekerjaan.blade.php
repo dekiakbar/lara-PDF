@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>PSPM</title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-</head>
-<body>
+@extends('masterAdmin')
 
+@section('judul','Tambah Pegawai')
+
+@section('isi')
 <div class="container">
-	<div class="col-md-5">
+	<div class="col-md-6">
 		<form>
 			<h3>Input Jenis Pekerjaan</h3>
 			<div class="form-group">
@@ -82,12 +79,19 @@
 
 			<div class="form-group">
 				<label>Seksi</label>
-				<input type="" name="seksi" class="form-control">
+				<select name="seksi" class="form-control">
+					<option value="produksi">Produksi</option>
+					<option value="tu">TU</option>
+					<option value="distribusi">Distribusi</option>
+					<option value="sosial">Sosial</option>
+					<option value="ipds">IPDS</option>
+					<option value="nerwilis">Nerwilis</option>
+				</select>
 			</div>
 
 			<div class="form-group">
 				<label>Index</label>
-				<input type="" name="index" class="form-control">
+				<input type="" name="index"class="form-control">
 			</div>
 
 			<div class="form-group">
@@ -102,7 +106,10 @@
 
 			<div class="form-group">
 				<label>Keterangan</label>
-				<input type="" name="keterangan" class="form-control">
+				<select class="form-control">
+					<option value="pcl">PCL</option>
+					<option value="plm">PLM</option>
+				</select>
 			</div>
 
 
@@ -112,7 +119,4 @@
 		</form>
 	</div>
 </div>
-
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-</body>
-</html>
+@endsection
