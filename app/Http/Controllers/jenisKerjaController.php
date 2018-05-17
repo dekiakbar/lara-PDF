@@ -52,7 +52,35 @@ class jenisKerjaController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $kerja = JenisKerja::findOrFail(decrypt($id));
+        $kerja->kode_prog = $request->input('kode_prog');
+        $kerja->program = $request->input('program');
+        $kerja->kode_keg = $request->input('kode_keg');
+        $kerja->kegiatan = $request->input('kegiatan');
+        $kerja->kode_output = $request->input('kode_output');
+        $kerja->output = $request->input('output');
+        $kerja->kode_komponen = $request->input('kode_komponen');
+        $kerja->komponen = $request->input('komponen');
+        $kerja->sub_komp = $request->input('sub_komp');
+        $kerja->kode_akun = $request->input('kode_akun');
+        $kerja->akun = $request->input('akun');
+        $kerja->volume = $request->input('volume');
+        $kerja->detail = $request->input('detail');
+        $kerja->seksi = $request->input('seksi');
+        $kerja->index = $request->input('index');
+        $kerja->bulan = $request->input('bulan');
+        $kerja->tahun = $request->input('tahun');
+        $kerja->keterangan = $request->input('keterangan');
+
+        if ($kerja->save()) {
+            session()->flash('status','success');
+            session()->flash('pesan','Data Pekerjaan Berhasil Diubah');
+        }else{
+            session()->flash('status','success');
+            session()->flash('pesan','Data Pekerjaan Gagal Diubah');
+        }
+
+        return redirect('superadmin/pekerjaan');
     }
 
 

@@ -18,7 +18,7 @@
         			Daftar Data Pekerjaan
         			<a href="{{ route('pekerjaan.create') }}" class="btn btn-primary btn-sm" style="float: right;">
         				<span class="glyphicon glyphicon-plus"></span> 
-        				Pegawai
+        				Pekerjaan
         			</a>
         		</h4>
         		<div class="table-responsive">    
