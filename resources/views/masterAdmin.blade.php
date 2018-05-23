@@ -33,6 +33,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="{{ route('pegawai.index') }}">Daftar Pegawai</a></li>
                     <li><a href="{{ route('pekerjaan.index') }}">Daftar Pekerjaan</a></li>
+                    <li><a href="{{ route('ttd.index') }}">Daftar Tanda Tangan</a></li>
                 </ul>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

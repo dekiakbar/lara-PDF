@@ -9,10 +9,15 @@ use App\Ttd;
 class ttdCont extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        $ttd = Ttd::firstOrFail();
-        return view('admin.ttd.Ittd');
+        $ttds = Ttd::paginate(10);
+        return view('admin.ttd.Ittd',compact('ttds'))->with('no',($request->input('page',1)-1)*10);
+    }
+
+    public function create()
+    {
+        return view('admin.ttd.Tttd');
     }
 
     public function update(Request $request, $id)
