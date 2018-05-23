@@ -3,70 +3,48 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta name="" content="">
-	<title>Data Magang</title>
+	<title>Surat Kerja</title>
 	<meta name="csrf-token" content="{{ csrf_token() }}">
     <style type="text/css">
-        table {
-            width: 100%;
-            background: $white;
-            margin: 1em 0em;
-            border: 1px solid rgba(34, 36, 38, 0.15);
-            border-radius: 0.28571429rem;
-            text-align: left;
-            color: $font-color;
-            border-collapse: separate;
-            border-spacing: 0px;
+        .tab{
+            margin-left: 50px;
         }
-        
-        th {
-            cursor: auto;
-            background: #F9FAFB;
-            text-align: inherit;
-            color: $font-color;
-            padding: 0.92857143em 0.78571429em;
-            vertical-align: inherit;
-            font-style: none;
-            font-weight: bold;
-            text-transform: none;
-            border-bottom: 1px solid rgba(34, 36, 38, 0.1);
-            border-left: none;
-        }
-
-        td {
-            cursor: auto;
-            border-top: 1px solid rgba(34, 36, 38, 0.15);
-            background: #F9FAFB;
-            text-align: center;
-            color: $font-color;
-            padding: 0.78571429em 0.78571429em;
-            vertical-align: middle;
-            font-style: normal;
-            font-weight: normal;
-            text-transform: none;
-        }
-
     </style>
 <body>
 
-	<table>
-        <thead>
-          <tr>
-            <th>Nama Lengkap</th>
-            <th>Nama Instansi</th>
-            <th>Judul kegiatan</th>
-            <th>Mulai Kegiatan</th>
-            <th>Akhir Kegiatan</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-               <td></td>
-            </tr>
-        </tbody>
-    </table>
+	<header id="header">
+        <img src="storage/bps.jpg" style="width: 80px;height: 80px;">
+        <div style="display: inline-block;margin-left: 20px;">
+            <p><h3>BADAN PUSAT STATISTIK</h3></p>
+            <p><h3>KABUPATEN SUKABUMI</h3></p>
+        </div>
+    </header>
+
+    <div style="margin-left: 300px;">
+        <p><h4 style="text-decoration: underline;">SURAT TUGAS</h4></p>
+    </div>
+
+    <div style="margin-left: 180px;margin-top: -30px;">
+        <p>Nomor  : 037/32021/SPD-KSA.A/PRODUKSI/02/2018</p>
+    </div>
+
+    <p>Yang bertandatangan di bawah ini :</p>
+
+    <div style="margin-left: 200px;">
+        <p><h4>KEPALA BPS KABUPATEN SUKABUMI</h4></p>
+    </div>
+
+    <p>Memberikan Tugas Kepada :</p>
+
+    <p>Nama<span class="tab">:  DODY GUNAWAN YUSUF S.Si</span></p>
+    <p>NIP<span class="tab">:  196601281994031002</span></p>
+    <p>Jabatan<span class="tab">:  Kepala BPS Kabupaten Sukabumi</span></p>
+    <p>Anggota<span class="tab">:  -  </span></p>
+    <p>Waktu Pelaksanaan<span class="tab">:   27 Pebruari 2018</span></p>
+
+    {{-- <footer>
+        <p>Jalan Raya Karangtengah KM 14 No 52 Cibadak, Sukabumi</p>
+        <p>Telp/Fax: (0266) 536953 / 536949. email : bps3202@bps.go.id, Website: http://sukabumikab.bps.go.id</p>    
+    </footer> --}}
 </body>
 </html>

@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('admin.pekerjaan.Tpekerjaan');
-});
+Route::get('/','pdfCont@render');
 
 Auth::routes();
 
@@ -35,4 +33,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 		//Route untuk data Tanda Tangan Pengesahan
 		Route::resource('ttd','ttdCont')->only(['index','create','store','update','destroy']);
+	});
+
+/*
+|--------------------------------------------------------------------------
+|  Route Pegawai
+|--------------------------------------------------------------------------
+|
+*/
+	Route::group(['prefix' => 'pegawai','middleware'=>'role:User'],function(){
+
+		//Route untuk data Tanggal surat
+		Route::resource('pegawai','pegawaiCont')->only(['index','create','store','update','destroy']);
 	});
