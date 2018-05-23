@@ -20,6 +20,19 @@ class ttdCont extends Controller
         return view('admin.ttd.Tttd');
     }
 
+    public function store(Request $request)
+    {
+        $simpan = Ttd::create([
+            'nama' => $request->input('nama'),
+            'nip' => $request->input('nip'),
+            'jabatan' => $request->input('jabatan'),
+        ]);
+        session()->flash('status','success');
+        session()->flash('pesan','Data Tanda Tangan Berhasil Disimpan');
+
+        return redirect()->route('ttd.index');
+    }
+
     public function update(Request $request, $id)
     {
         $edit = Ttd::findOrFail(decrypt($id));
@@ -40,6 +53,12 @@ class ttdCont extends Controller
 
     public function destroy($id)
     {
-        //
+        $hapus = Ttd::findOrFail(decrypt($id));
+        $hapus->delete();
+
+        session()->flash('status','success');
+        session()->flash('pesan','Data Tanda Tangan Berhasil Dihapus');
+
+        return redirect()->route('ttd.index');
     }
 }
