@@ -10,13 +10,13 @@ class jenisKerjaController extends Controller
     public function index(Request $request)
     {
         $kerjas = JenisKerja::paginate(10);
-        return view('admin.pekerjaan.Ipekerjaan',compact('kerjas'))->with('no',($request->input('page',1)-1)*10);
+        return view('superadmin.pekerjaan.Ipekerjaan',compact('kerjas'))->with('no',($request->input('page',1)-1)*10);
     }
 
 
     public function create()
     {
-        return view('admin.pekerjaan.Tpekerjaan');
+        return view('superadmin.pekerjaan.Tpekerjaan');
     }
 
 

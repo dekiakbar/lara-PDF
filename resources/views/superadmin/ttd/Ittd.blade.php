@@ -29,6 +29,8 @@
 		                   	<th>Nama</th>
 		                   	<th>Nip</th>
 		                    <th>Jabatan</th>
+		                    <th>Edit</th>  
+                    		<th>Delete</th>
                   		</thead>
 
 					    <tbody>

@@ -12,12 +12,12 @@ class ttdCont extends Controller
     public function index(Request $request)
     {
         $ttds = Ttd::paginate(10);
-        return view('admin.ttd.Ittd',compact('ttds'))->with('no',($request->input('page',1)-1)*10);
+        return view('superadmin.ttd.Ittd',compact('ttds'))->with('no',($request->input('page',1)-1)*10);
     }
 
     public function create()
     {
-        return view('admin.ttd.Tttd');
+        return view('superadmin.ttd.Tttd');
     }
 
     public function store(Request $request)

@@ -13,13 +13,13 @@ class pegawaiCont extends Controller
     {
         $pegawais = Pegawai::with('users.roles')->paginate(10);
         $roles = Role::all();
-        return view('admin.pegawai.Ipegawai',compact('pegawais','roles'))->with('no',($req->input('page',1)-1)*10);
+        return view('superadmin.pegawai.Ipegawai',compact('pegawais','roles'))->with('no',($req->input('page',1)-1)*10);
     }
 
     public function create()
     {
         $roles = Role::all();
-        return view('admin.pegawai.Tpegawai',compact('roles'));
+        return view('superadmin.pegawai.Tpegawai',compact('roles'));
     }
 
     public function store(Request $request)
