@@ -11,7 +11,8 @@ class ttdCont extends Controller
 
     public function index()
     {
-        //
+        $ttd = Ttd::firstOrFail();
+        return view('admin.ttd.Ittd');
     }
 
     public function update(Request $request, $id)
