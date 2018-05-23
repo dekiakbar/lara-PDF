@@ -32,4 +32,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 		//Route untuk data Jenis Pekerjaan
 		Route::resource('pekerjaan','jenisKerjaController')->only(['index','create','store','update','destroy']);
+
+		//Route untuk data Tanda Tangan Pengesahan
+		Route::resource('ttd','ttdCont')->only(['index','create','store','update','destroy']);
 	});

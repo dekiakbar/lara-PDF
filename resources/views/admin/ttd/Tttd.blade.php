@@ -14,7 +14,8 @@
 	        <div class="panel panel-default">
                 <div class="panel-heading"><h4>Input Tanda Tangan Pengesahan</h4></div>
                 <div class="panel-body">
-                	<form>
+                	<form action="{{ route('ttd.store') }}" method="post">
+                		{{csrf_field()}}
 						<div class="form-group">
 							<label>Nama</label>
 							<input type="" name="nama" class="form-control">
