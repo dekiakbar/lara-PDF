@@ -29,10 +29,6 @@
                         Surat Kerja PDF
                     </a>
                 </div>
-                    
-                <ul class="nav navbar-nav">
-                    <li><a href="{{ route('pegawai.index') }}">Daftar Pegawai</a></li>
-                </ul>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <ul class="nav navbar-nav">

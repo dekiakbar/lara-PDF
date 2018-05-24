@@ -41,8 +41,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 |--------------------------------------------------------------------------
 |
 */
-	Route::group(['prefix' => 'pegawai','middleware'=>'role:User'],function(){
+	Route::group(['prefix' => 'user','middleware'=>'role:User'],function(){
 
 		//Route untuk data Tanggal surat
-		Route::resource('pegawai','pegawaiCont')->only(['index','create','store','update','destroy']);
+		//Route::resource('pegawai','pegawaiCont')->only(['index','create','store','update','destroy']);
+
+		//Route cetak surat
+		Route::get('surat','pdfCont@tampilSurat');
 	});

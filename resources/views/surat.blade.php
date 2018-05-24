@@ -11,21 +11,26 @@
         }
 
         table{
-            border: 1px solid;
             margin: auto;
             width: 100%;
+            border-collapse: collapse;
         }
+        
         td{
-            border: 1px solid;
+            border: 1px solid black;
+        }
+        
+        footer{
+            width: 100%;
         }
     </style>
 <body>
 
-	<header id="header">
+	<header id="header" style="margin-left:10px;">
         <img src="storage/bps.jpg" style="width: 80px;height: 80px;">
         <div style="display: inline-block;margin-left: 20px;">
-            <p><h3>BADAN PUSAT STATISTIK</h3></p>
-            <p><h3>KABUPATEN SUKABUMI</h3></p>
+            <p><h3><i>BADAN PUSAT STATISTIK</i></h3></p>
+            <p style="margin-top: -10px;"><h3><i>KABUPATEN SUKABUMI</i></h3></p>
         </div>
     </header>
 
@@ -58,7 +63,7 @@
     <table>
         <thead>
             <tr>
-                <td style="width: 50%;">wew</td>
+                <td style="width: 50%;"></td>
                 <td style="width: 50%;text-align: center;">
                     <p>Kabupaten Sukabumi, 1 Pebruari 2018</p>
                     <p>Kepala</p>
@@ -72,9 +77,9 @@
         </thead>
     </table>
 
-    {{-- <footer>
-        <p>Jalan Raya Karangtengah KM 14 No 52 Cibadak, Sukabumi</p>
-        <p>Telp/Fax: (0266) 536953 / 536949. email : bps3202@bps.go.id, Website: http://sukabumikab.bps.go.id</p>    
-    </footer> --}}
+    <footer style="margin-top: 132px;">
+        <p style="margin-left: 170px;font-size: 15px;">Jalan Raya Karangtengah KM 14 No 52 Cibadak, Sukabumi</p>
+        <p style="margin-left: 30px;margin-top: -15px;font-size: 15px;">Telp/Fax: (0266) 536953 / 536949. email : bps3202@bps.go.id, Website: http://sukabumikab.bps.go.id</p>    
+    </footer>
 </body>
 </html>
