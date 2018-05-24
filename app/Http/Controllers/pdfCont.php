@@ -19,10 +19,10 @@ class pdfCont extends Controller
 
     public function pdf(Request $request)
     {
-    	$p = Pegawai::findOrFail();
-    	$kerja = JenisKerja::findOrFail();
+    	$p = Pegawai::with('users')->where('user_id',$request->input('pID'))->first();
+    	$k = JenisKerja::findOrFail($request->input('kID'));
 
-    	$pdf = PDF::loadView('surat');
+    	$pdf = PDF::loadView('surat',compact('p','k'))->setPaper('a4', 'potrait');
 		return $pdf->stream('Surat-Tugas.pdf');
     }
 

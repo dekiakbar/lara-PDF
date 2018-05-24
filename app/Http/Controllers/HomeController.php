@@ -24,15 +24,15 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         if ($request->user()->hasRole('Super Admin')) {
-            return redirect('/superadmin');
+            return redirect('/superadmin/pegawai');
         }
 
         if ($request->user()->hasRole('Admin')) {
-            return redirect('/admin');
+            return redirect('/admin/tgl');
         }
 
         if ($request->user()->hasRole('User')) {
-            return redirect('/user');
+            return redirect('/user/surat');
         }
         
         // $request->user()->authorizeRoles(['Super Admin','Admin','User']);

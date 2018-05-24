@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/','pdfCont@render');
+Route::get('/',function(){
+	return view('auth.login');
+});
 
 Auth::routes();
 
@@ -35,6 +37,20 @@ Route::get('/home', 'HomeController@index')->name('home');
 		Route::resource('ttd','ttdCont')->only(['index','create','store','update','destroy']);
 	});
 
+
+/*
+|--------------------------------------------------------------------------
+|  Route Admin
+|--------------------------------------------------------------------------
+|
+*/
+	Route::group(['prefix' => 'admin','middleware'=>'role:Admin'],function(){
+
+		//Route untuk data Tanggal surat
+		Route::resource('tgl','TglCont')->only(['index','create','store','update','destroy']);
+	});
+
+
 /*
 |--------------------------------------------------------------------------
 |  Route Pegawai
@@ -44,8 +60,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::group(['prefix' => 'user','middleware'=>'role:User'],function(){
 
 		//Route untuk data Tanggal surat
-		//Route::resource('pegawai','pegawaiCont')->only(['index','create','store','update','destroy']);
+		Route::resource('tgl','TglCont')->only(['index','create','store','update','destroy']);
 
 		//Route cetak surat
 		Route::get('surat','pdfCont@tampilSurat');
+		Route::post('surat','pdfCont@pdf')->name('cetak');
 	});
