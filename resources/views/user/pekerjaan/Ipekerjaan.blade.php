@@ -39,7 +39,7 @@
 								    	</p>
 								    </td>
 								    <td>
-								    	<form action="{{route('cetak')}}" method="post">
+								    	<form action="{{route('tampiltgl')}}" method="post">
 								    		{{csrf_field()}}
 								    		<input type="hidden" name="pID" value="{{Auth::id()}}">
 								    		<input type="hidden" name="kID" value="{{$k->id}}">

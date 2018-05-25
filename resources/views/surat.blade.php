@@ -57,7 +57,7 @@
 
     <p>Tujuan<span style="margin-left: 88px;">: {{$k->kegiatan}}</span></p>
     
-    <p>Waktu Pelaksanaan<span style="margin-left: 10px;">:   27 Pebruari 2018</span></p>
+    <p>Waktu Pelaksanaan<span style="margin-left: 10px;">:   {{$w->waktupelaksanaan}}</span></p>
 
     <table>
         <thead>

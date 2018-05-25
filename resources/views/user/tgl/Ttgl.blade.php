@@ -1,6 +1,6 @@
-@extends('masterAdmin')
+@extends('masterUser')
 
-@section('judul','Tambah Waktu Pelaksanaan Surat Tugas')
+@section('judul','Tambah Data Tanggal')
 
 @section('isi')
 <div class="container">
@@ -14,20 +14,23 @@
             <div class="panel panel-default">
                 <div class="panel-heading"><h4>Masukkan Waktu Pelaksanaan Surat Tugas</h4></div>
                 <div class="panel-body">
-					<form>
+					<form action="{{ route('isiTgl') }}" method="post">
+						{{csrf_field()}}
+						<input type="hidden" name="pID" value="{{$pID}}">
+						<input type="hidden" name="kID" value="{{$kID}}">
 						<div class="form-group">
 							<label>Waktu Pelaksanaan</label>
-							<input type="text" name="waktupelaksanaan" class="form-control">
+							<input type="text" name="waktupelaksanaan" class="form-control" id="tgl">
 						</div>
 
 						<div class="form-group">
 							<label>Tanggal Berangkat</label>
-							<input type="text" name="tanggalberangkat" class="form-control">
+							<input type="text" name="tanggalberangkat" class="form-control" id="tgl1">
 						</div>
 
 						<div class="form-group">
 							<label>Tanggal Harus Kembali</label>
-							<input type="text" name="tanggalkembali" class="form-control">
+							<input type="text" name="tanggalkembali" class="form-control" id="tgl2">
 						</div>
 
 						<div class="form-group">
@@ -45,8 +48,9 @@
 						</div>
 
 					</form>
-                </div>
+				</div>
 			</div>
-        </div>
+		</div>
 	</div>
-</div>
+</div>		
+@endsection

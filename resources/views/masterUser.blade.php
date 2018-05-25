@@ -11,6 +11,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
     <div id="app">
@@ -69,5 +70,19 @@
 
     <script src="{{ asset('js/app.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/manual.js') }}"></script>
+     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $( function() {
+            $( "#tgl" ).datepicker();
+        });
+
+        $( function() {
+            $( "#tgl1" ).datepicker();
+        });
+
+        $( function() {
+            $( "#tgl2" ).datepicker();
+        });
+  </script>
 </body>
 </html>

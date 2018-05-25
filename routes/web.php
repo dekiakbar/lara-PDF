@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/',function(){
-	return view('auth.login');
-});
-
 Auth::routes();
+
+Route::get('/',function(){
+	return redirect()->route('login');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -60,9 +60,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 	Route::group(['prefix' => 'user','middleware'=>'role:User'],function(){
 
 		//Route untuk data Tanggal surat
-		Route::resource('tgl','TglCont')->only(['index','create','store','update','destroy']);
+		// Route::resource('tgl','TglCont')->only(['index','create','store','update','destroy']);
 
 		//Route cetak surat
 		Route::get('surat','pdfCont@tampilSurat');
-		Route::post('surat','pdfCont@pdf')->name('cetak');
+		Route::post('surat/tgl','pdfCont@isiTanggal')->name('isiTgl');
+		Route::post('surat/tampil/tanggal','pdfCont@Ttanggal')->name('tampiltgl');
+		// Route::post('surat','pdfCont@pdf')->name('cetak');
 	});
